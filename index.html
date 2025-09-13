@@ -1,199 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Growtopia Password Recovery</title>
-  <!-- Favicon for tab -->
-  <link rel="icon" type="image/png" href="revikon.png">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    .header {
-      background: #4fd3f7;
-      padding: 30px 0 10px 0;
-      text-align: center;
-      position: relative;
-    }
-    .header img {
-      height: 60px;
-      vertical-align: middle;
-    }
-    .header .title {
-      display: inline-block;
-      color: #fff;
-      font-size: 2.2em;
-      font-weight: 700;
-      margin-left: 30px;
-      vertical-align: middle;
-      letter-spacing: 2px;
-    }
-    .banner {
-      background: #aeea00;
-      text-align: center;
-      padding: 10px 0;
-      color: #fff;
-      font-size: 1.3em;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .growtopia-logo-section {
-      text-align: center;
-      margin: 20px 0 -10px 0;
-    }
-    .growtopia-logo-section img {
-      max-width: 300px;
-      width: 90%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .growtopia-logo-section p {
-      margin: 8px 0 0 0;
-      font-size: 1em;
-      color: #333;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    .container {
-      max-width: 500px;
-      margin: 30px auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      padding: 30px 20px 20px 20px;
-    }
-    h2 {
-      color: #4fd3f7;
-      font-size: 2em;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-    .desc {
-      color: #222;
-      font-size: 1.1em;
-      margin-bottom: 25px;
-      font-weight: 400;
-    }
-    label {
-      display: block;
-      margin-bottom: 7px;
-      font-weight: 700;
-      color: #888;
-      font-size: 1em;
-    }
-    input[type="text"], input[type="email"] {
-      width: 100%;
-      padding: 13px 10px;
-      margin-bottom: 18px;
-      border: 1.5px solid #ddd;
-      border-radius: 4px;
-      font-size: 1em;
-      font-family: inherit;
-      background: #fafafa;
-      transition: border 0.2s;
-    }
-    input[type="text"]:focus, input[type="email"]:focus {
-      border: 1.5px solid #4fd3f7;
-      outline: none;
-    }
-    .forgot-link {
-      color: #ff6f00;
-      font-size: 1em;
-      margin-bottom: 18px;
-      display: block;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .recaptcha {
-      margin: 20px 0;
-      background: #f5f5f5;
-      border-radius: 6px;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      border: 1px solid #ddd;
-    }
-    .recaptcha input[type="checkbox"] {
-      width: 22px;
-      height: 22px;
-      margin-right: 12px;
-    }
-    .recaptcha label {
-      color: #222;
-      font-weight: 400;
-      margin: 0;
-      font-size: 1.1em;
-    }
-    .submit-btn {
-      background: #4fd3f7;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 13px 0;
-      width: 100%;
-      font-size: 1.1em;
-      font-weight: 700;
-      letter-spacing: 1px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.2s;
-    }
-    .submit-btn:hover {
-      background: #00bcd4;
-    }
-    @media (max-width: 600px) {
-      .container {
-        margin: 10px;
-        padding: 18px 5px 15px 5px;
-      }
-      .header img {
-        height: 40px;
-      }
-      .header .title {
-        font-size: 1.2em;
-        margin-left: 10px;
-      }
-      .growtopia-logo-section img {
-        max-width: 95vw;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Password Recovery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            background-color: #87CEEB;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .support-text {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .banner {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #00BFFF;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .forgot-link {
+            color: #FF4500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .recaptcha {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .submit-btn {
+            background-color: #00BFFF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .note {
+            color: #808080;
+            margin-top: 15px;
+        }
+        .scene-img {
+            display: block;
+            margin: 20px auto;
+            max-width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <img src="https://growtopiagame.com/images/logos/logo.png" alt="Growtopia Logo">
-    <span class="title">PLAYER<br>SUPPORT</span>
-  </div>
-  <div class="growtopia-logo-section">
-    <img src="gt-shop-banner.png" alt="Growtopia Logo">
-    <p>Growtopia Logo</p>
-  </div>
-  <div class="banner">
-    AUGUST SEASON IS HERE!
-  </div>
-  <div class="container">
-    <h2>GROWTOPIA PASSWORD RECOVERY</h2>
-    <div class="desc">
-      Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your Gro[...]
+    <header class="header">
+        <div class="header-content">
+            <img src="logo.png" alt="Growtopia Logo" class="logo">
+            <div class="support-text">PLAYER SUPPORT</div>
+        </div>
+    </header>
+    
+    <img src="banner.png" alt="August Season Banner" class="banner">
+
+    <div class="container">
+        <h2>GROWTOPIA PASSWORD RECOVERY</h2>
+        <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your GrowID, this won't work)</p>
+        
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="GrowID *" required>
+            </div>
+            
+            <a href="#" class="forgot-link">(Click here if you can't remember your GrowID)</a>
+            
+            <div class="form-group">
+                <input type="email" placeholder="GrowID Email *" required>
+            </div>
+            
+            <div class="recaptcha">
+                <input type="checkbox" id="recaptcha">
+                <label for="recaptcha" style="margin-left: 8px;">Saya bukan robot</label>
+            </div>
+            
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+        
+        <p class="note">We'll email you a URL to click</p>
     </div>
-    <form>
-      <input type="text" placeholder="GrowID *" required>
-      <a href="#" class="forgot-link">(Click here if you can't remember your GrowID)</a>
-      <input type="email" placeholder="GrowID Email *" required>
-      <div class="recaptcha">
-        <input type="checkbox" id="robot">
-        <label for="robot">Saya bukan robot</label>
-        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" style="margin-left:auto; height:32px;">
-      </div>
-      <button type="submit" class="submit-btn">SUBMIT</button>
-    </form>
-  </div>
+    <img src="bg2.jpg" alt="Growtopia Scene" class="scene-img">
 </body>
 </html>
