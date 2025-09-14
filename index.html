@@ -15,7 +15,6 @@
             background-color: #87CEEB;
             padding: 15px;
             text-align: center;
-            position: relative;
         }
         .header-content {
             display: flex;
@@ -31,22 +30,30 @@
             font-size: 24px;
             font-weight: bold;
         }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px 20px 35px 20px;
+            background: url('bg2.jpg') center/cover no-repeat;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .container-inner {
+            background: rgba(255,255,255,0.92);
+            border-radius: 5px;
+            padding: 20px;
+        }
         .banner {
             width: 100%;
             max-width: 100%;
             display: block;
-            margin: 0 auto;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 0 auto 18px auto;
+            border-radius: 5px 5px 0 0;
         }
         h2 {
             color: #00BFFF;
+            margin-top: 0;
         }
         .form-group {
             margin-bottom: 15px;
@@ -83,13 +90,6 @@
             color: #808080;
             margin-top: 15px;
         }
-        .scene-img {
-            display: block;
-            margin: 20px auto;
-            max-width: 90%;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
     </style>
 </head>
 <body>
@@ -99,34 +99,30 @@
             <div class="support-text">PLAYER SUPPORT</div>
         </div>
     </header>
-    
-    <img src="banner.png" alt="August Season Banner" class="banner">
-
     <div class="container">
-        <h2>GROWTOPIA PASSWORD RECOVERY</h2>
-        <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your GrowID, this won't work)</p>
-        
-        <form>
-            <div class="form-group">
-                <input type="text" placeholder="GrowID *" required>
-            </div>
+        <div class="container-inner">
+            <!-- Banner moved inside container -->
+            <img src="banner.png" alt="August Season Banner" class="banner">
+
+            <h2>GROWTOPIA PASSWORD RECOVERY</h2>
+            <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your account, you may not be able to recover it.)</p>
             
-            <a href="#" class="forgot-link">(Click here if you can't remember your GrowID)</a>
-            
-            <div class="form-group">
-                <input type="email" placeholder="GrowID Email *" required>
-            </div>
-            
-            <div class="recaptcha">
-                <input type="checkbox" id="recaptcha">
-                <label for="recaptcha" style="margin-left: 8px;">Saya bukan robot</label>
-            </div>
-            
-            <button type="submit" class="submit-btn">SUBMIT</button>
-        </form>
-        
-        <p class="note">We'll email you a URL to click</p>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="GrowID *" required>
+                </div>
+                <a href="#" class="forgot-link">(Click here if you can't remember your GrowID)</a>
+                <div class="form-group">
+                    <input type="email" placeholder="GrowID Email *" required>
+                </div>
+                <div class="recaptcha">
+                    <input type="checkbox" id="recaptcha">
+                    <label for="recaptcha" style="margin-left: 8px;">Saya bukan robot</label>
+                </div>
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+            <p class="note">We'll email you a URL to click</p>
+        </div>
     </div>
-    <img src="bg2.jpg" alt="Growtopia Scene" class="scene-img">
 </body>
 </html>
