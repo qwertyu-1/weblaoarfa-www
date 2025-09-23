@@ -1,146 +1,809 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growtopia Password Recovery</title>
+    <meta name="description" content="Toko online iPhone terpercaya dengan berbagai model dan varian terbaru. Harga kompetitif dan garansi resmi.">
+    <title>iPhone Store - Toko Online iPhone Terlengkap</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset CSS */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .header {
-            background-color: #87CEEB;
-            padding: 15px;
+
+        /* Variabel CSS */
+        :root {
+            --primary-color: #0071e3;
+            --secondary-color: #f5f5f7;
+            --text-color: #1d1d1f;
+            --light-text: #86868b;
+            --border-color: #d2d2d7;
+            --success-color: #34c759;
+        }
+
+        body {
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
             text-align: center;
         }
-        .header-content {
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: var(--text-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .product-variants {
             display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .variant {
+            padding: 5px 10px;
+            background-color: var(--secondary-color);
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .variant.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .order-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .order-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #d2d2d7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #86868b;
+        }
+
+        /* Detail Product Page Styles */
+        .product-detail {
+            padding: 80px 0;
+        }
+
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .product-detail-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-detail-info h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .product-detail-description {
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+
+        .product-detail-variants {
+            margin-bottom: 30px;
+        }
+
+        .variant-select {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Admin Guide Modal */
+        .admin-guide {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-weight: 600;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
         }
-        .logo {
-            height: 40px;
-            margin-right: 10px;
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
         }
-        .support-text {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px 20px 35px 20px;
-            background: url('bg2.jpg') center/cover no-repeat;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        .container-inner {
-            background: rgba(255,255,255,0.92);
-            border-radius: 5px;
-            padding: 20px;
-        }
-        .banner {
-            width: 100%;
-            max-width: 100%;
-            display: block;
-            margin: 0 auto 18px auto;
-            border-radius: 5px 5px 0 0;
-        }
-        h2 {
-            color: #00BFFF;
-            margin-top: 0;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .forgot-link {
-            color: #FF4500;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px 0;
-        }
-        .recaptcha {
+
+        .modal-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin: 15px 0;
+            margin-bottom: 20px;
         }
-        .submit-btn {
-            background-color: #00BFFF;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .close-modal {
+            font-size: 24px;
             cursor: pointer;
-            font-size: 16px;
+            color: var(--light-text);
         }
-        .note {
-            color: #808080;
-            margin-top: 15px;
+
+        .guide-section {
+            margin-bottom: 25px;
+        }
+
+        .guide-section h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        code {
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .product-detail-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <img src="logo.png" alt="Growtopia Logo" class="logo">
-            <div class="support-text">PLAYER SUPPORT</div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">iPhone<span>Store</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
         </div>
     </header>
-    <div class="container">
-        <div class="container-inner">
-            <img src="banner.png" alt="August Season Banner" class="banner">
 
-            <h2>GROWTOPIA PASSWORD RECOVERY</h2>
-            <p>Enter in your Growtopia data and you can reset your password. (You'll have to check your email and click the URL we send, so if your email address wasn't entered correctly when you made your account you may not be able to recover your password.)</p>
-            
-            <form id="growForm">
-                <div class="form-group">
-                    <input type="text" placeholder="GrowID *" name="growid" required>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>iPhone Terbaru dengan Harga Terbaik</h1>
+            <p>Temukan koleksi iPhone terlengkap dengan berbagai model dan varian. Garansi resmi dan pengiriman cepat.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Produk iPhone Kami</h2>
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>iPhoneStore</h3>
+                    <p>Toko online iPhone terpercaya dengan berbagai model dan varian terbaru. Harga kompetitif dan garansi resmi.</p>
                 </div>
-                <a href="#" class="forgot-link">(Click here if you can't remember your GrowID)</a>
-                <div class="form-group">
-                    <input type="email" placeholder="GrowID Email *" name="email" required>
+                <div class="footer-column">
+                    <h3>Produk</h3>
+                    <ul>
+                        <li><a href="#">iPhone 15 Series</a></li>
+                        <li><a href="#">iPhone 14 Series</a></li>
+                        <li><a href="#">iPhone 13 Series</a></li>
+                        <li><a href="#">iPhone SE</a></li>
+                    </ul>
                 </div>
-                <div class="recaptcha">
-                    <input type="checkbox" id="recaptcha" required>
-                    <label for="recaptcha" style="margin-left: 8px;">Saya bukan robot</label>
+                <div class="footer-column">
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="#">Cara Beli</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Garansi</a></li>
+                        <li><a href="#">Kontak Kami</a></li>
+                    </ul>
                 </div>
-                <button type="submit" class="submit-btn">SUBMIT</button>
-            </form>
-            <p class="note">We'll email you a URL to click</p>
-            <p id="hasil" style="margin-top:18px; color:#00BFFF;"></p>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li>Email: info@iphonestore.com</li>
+                        <li>WhatsApp: 6283133847940</li>
+                        <li>Alamat: Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 iPhoneStore. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Guide Button -->
+    <div class="admin-guide" id="adminGuideBtn">Panduan Admin</div>
+
+    <!-- Admin Guide Modal -->
+    <div class="modal" id="adminGuideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Panduan Admin Toko iPhone</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="guide-section">
+                <h3>1. Mengganti Nomor WhatsApp</h3>
+                <p>Untuk mengganti nomor WhatsApp tujuan, buka file <code>script.js</code> dan cari variabel:</p>
+                <code>const whatsappNumber = "6283133847940";</code>
+                <p>Ganti nomor tersebut dengan nomor WhatsApp yang diinginkan.</p>
+            </div>
+            <div class="guide-section">
+                <h3>2. Mengubah Template Pesan WhatsApp</h3>
+                <p>Template pesan WhatsApp dapat diubah di fungsi <code>generateWhatsAppMessage</code> dalam file <code>script.js</code>:</p>
+                <code>function generateWhatsAppMessage(product) {
+    return `Halo, saya ingin memesan:
+    
+Nama Produk: ${product.name}
+ID Produk: ${product.id}
+Varian: ${product.variant}
+Harga: ${product.price}
+
+Apakah produk ini masih tersedia?`;
+}</code>
+                <p>Ubah teks dalam template sesuai kebutuhan.</p>
+            </div>
+            <div class="guide-section">
+                <h3>3. Menambah/Mengedit Produk</h3>
+                <p>Produk disimpan dalam array <code>products</code> di file <code>script.js</code>. Format produk:</p>
+                <code>{
+    id: "IP15P128",
+    name: "iPhone 15 Pro",
+    price: "Rp 18.999.000",
+    image: "images/iphone15pro.jpg",
+    variants: ["128GB", "256GB", "512GB", "1TB"],
+    description: "iPhone 15 Pro dengan chip A17 Pro, kamera 48MP, dan desain titanium."
+}</code>
+                <p>Untuk menambah produk, cukup tambahkan objek baru ke array <code>products</code>.</p>
+            </div>
+            <div class="guide-section">
+                <h3>4. Setup Google Analytics</h3>
+                <p>Untuk melacak klik tombol order, ganti <code>GA_TRACKING_ID</code> di file <code>script.js</code> dengan ID tracking Google Analytics Anda:</p>
+                <code>// Ganti dengan ID Tracking Google Analytics Anda
+const GA_TRACKING_ID = 'UA-XXXXXXXXX-X';</code>
+            </div>
         </div>
     </div>
+
+    <!-- JavaScript -->
     <script>
-    document.getElementById('growForm').addEventListener('submit', function(e){
-        e.preventDefault();
-        var formData = new FormData(this);
-        fetch('http://localhost:5000/input', {
-            method: 'POST',
-            body: formData
-        }).then(r => {
-            if (!r.ok) {
-                document.getElementById('hasil').innerText = 'Gagal mengirim data.';
-            } else {
-                document.getElementById('hasil').innerText = '';
+        // Data Produk
+        const products = [
+            {
+                id: "IP15P128",
+                name: "iPhone 15 Pro",
+                price: "Rp 18.999.000",
+                image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                variants: ["128GB", "256GB", "512GB", "1TB"],
+                description: "iPhone 15 Pro dengan chip A17 Pro, kamera 48MP, dan desain titanium. Layar Super Retina XDR 6,1 inci yang cerah dan tajam."
+            },
+            {
+                id: "IP15PM256",
+                name: "iPhone 15 Pro Max",
+                price: "Rp 22.999.000",
+                image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                variants: ["256GB", "512GB", "1TB"],
+                description: "iPhone 15 Pro Max dengan layar terbesar 6,7 inci, kamera telefoto 5x, dan baterai tahan lama."
+            },
+            {
+                id: "IP15128",
+                name: "iPhone 15",
+                price: "Rp 14.999.000",
+                image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                variants: ["128GB", "256GB", "512GB"],
+                description: "iPhone 15 dengan chip A16 Bionic, Dynamic Island, dan kamera utama 48MP. Tersedia dalam 5 warna menarik."
+            },
+            {
+                id: "IP14P128",
+                name: "iPhone 14 Pro",
+                price: "Rp 16.999.000",
+                image: "https://images.unsplash.com/photo-1663499482523-3c17d917a26d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                variants: ["128GB", "256GB", "512GB", "1TB"],
+                description: "iPhone 14 Pro dengan Dynamic Island, Always-On Display, dan kamera 48MP. Chip A16 Bionic untuk performa terbaik."
+            },
+            {
+                id: "IP14128",
+                name: "iPhone 14",
+                price: "Rp 12.999.000",
+                image: "https://images.unsplash.com/photo-1663499482523-3c17d917a26d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                variants: ["128GB", "256GB", "512GB"],
+                description: "iPhone 14 dengan performa andal, baterai tahan lama, dan sistem kamera canggih. Tersedia dalam 6 warna."
+            },
+            {
+                id: "IPSE64",
+                name: "iPhone SE",
+                price: "Rp 7.999.000",
+                image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                variants: ["64GB", "128GB", "256GB"],
+                description: "iPhone SE dengan chip A15 Bionic yang powerful dalam desain kompak. Cocok untuk pengguna yang menyukai ukuran kecil."
             }
-        }).catch(err => {
-            document.getElementById('hasil').innerText = 'Gagal mengirim data.';
+        ];
+
+        // Konfigurasi WhatsApp
+        const whatsappNumber = "6283133847940";
+
+        // Ganti dengan ID Tracking Google Analytics Anda
+        const GA_TRACKING_ID = 'UA-XXXXXXXXX-X';
+
+        // Fungsi untuk menghasilkan pesan WhatsApp
+        function generateWhatsAppMessage(product) {
+            return `Halo, saya ingin memesan:
+            
+Nama Produk: ${product.name}
+ID Produk: ${product.id}
+Varian: ${product.variant}
+Harga: ${product.price}
+
+Apakah produk ini masih tersedia?`;
+        }
+
+        // Fungsi untuk membuka WhatsApp
+        function openWhatsApp(product) {
+            const message = generateWhatsAppMessage(product);
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+            
+            // Track order click (Google Analytics)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'order_click', {
+                    'event_category': 'engagement',
+                    'event_label': product.id
+                });
+            }
+            
+            // Buka WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Fungsi untuk menampilkan produk di halaman utama
+        function displayProducts() {
+            const productsContainer = document.getElementById('products-container');
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-price">${product.price}</p>
+                        <div class="product-variants">
+                            ${product.variants.map(variant => 
+                                `<span class="variant" data-variant="${variant}">${variant}</span>`
+                            ).join('')}
+                        </div>
+                        <a href="detail.html?id=${product.id}" class="order-btn">Lihat Detail</a>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // Event listener untuk varian produk
+            document.querySelectorAll('.variant').forEach(variant => {
+                variant.addEventListener('click', function() {
+                    // Hapus kelas active dari semua varian dalam produk yang sama
+                    const siblings = this.parentElement.querySelectorAll('.variant');
+                    siblings.forEach(s => s.classList.remove('active'));
+                    
+                    // Tambahkan kelas active ke varian yang diklik
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        // Fungsi untuk menampilkan detail produk
+        function displayProductDetail() {
+            // Ambil ID produk dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            if (!productId) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Cari produk berdasarkan ID
+            const product = products.find(p => p.id === productId);
+            
+            if (!product) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Tampilkan detail produk
+            document.title = `${product.name} - iPhone Store`;
+            
+            const productDetailContainer = document.createElement('div');
+            productDetailContainer.className = 'product-detail-container';
+            
+            productDetailContainer.innerHTML = `
+                <div>
+                    <a href="index.html" class="back-link">&larr; Kembali ke Daftar Produk</a>
+                    <img src="${product.image}" alt="${product.name}" class="product-detail-image">
+                </div>
+                <div class="product-detail-info">
+                    <h1>${product.name}</h1>
+                    <p class="product-detail-price">${product.price}</p>
+                    <p class="product-detail-description">${product.description}</p>
+                    
+                    <div class="product-detail-variants">
+                        <label for="variant-select">Pilih Varian:</label>
+                        <select id="variant-select" class="variant-select">
+                            ${product.variants.map(variant => 
+                                `<option value="${variant}">${variant}</option>`
+                            ).join('')}
+                        </select>
+                    </div>
+                    
+                    <button class="order-btn" id="order-btn-detail">Pesan Sekarang via WhatsApp</button>
+                </div>
+            `;
+            
+            document.querySelector('.product-detail').appendChild(productDetailContainer);
+            
+            // Event listener untuk tombol pesan
+            document.getElementById('order-btn-detail').addEventListener('click', function() {
+                const selectedVariant = document.getElementById('variant-select').value;
+                const productWithVariant = {
+                    ...product,
+                    variant: selectedVariant
+                };
+                
+                openWhatsApp(productWithVariant);
+            });
+        }
+
+        // Fungsi untuk modal panduan admin
+        function setupAdminGuide() {
+            const adminGuideBtn = document.getElementById('adminGuideBtn');
+            const adminGuideModal = document.getElementById('adminGuideModal');
+            const closeModal = document.querySelector('.close-modal');
+            
+            adminGuideBtn.addEventListener('click', function() {
+                adminGuideModal.style.display = 'flex';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                adminGuideModal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === adminGuideModal) {
+                    adminGuideModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Fungsi untuk mobile menu
+        function setupMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Inisialisasi berdasarkan halaman
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup mobile menu
+            setupMobileMenu();
+            
+            // Setup admin guide
+            setupAdminGuide();
+            
+            // Tentukan halaman mana yang sedang dibuka
+            if (window.location.pathname.includes('detail.html')) {
+                // Halaman detail produk
+                displayProductDetail();
+            } else {
+                // Halaman utama (daftar produk)
+                displayProducts();
+            }
         });
-    });
     </script>
 </body>
 </html>
