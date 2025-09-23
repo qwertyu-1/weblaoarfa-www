@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BanCU STORE — Toko iPhone Terpercaya</title>
+
+  <!-- SEO & Mobile / PWA meta -->
+  <meta name="description" content="BanCU STORE — Toko iPhone terpercaya. Cek stok, garansi, dan pesan via WhatsApp.">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Embedded iBox SVG icon (data URI) -->
+  <!-- This icon is used as favicon and apple-touch-icon (no external files needed) -->
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><rect%20rx='64'%20width='512'%20height='512'%20fill='%23ff6b35'/><rect%20x='96'%20y='96'%20width='320'%20height='320'%20rx='40'%20fill='%23ffffff'/><text%20x='256'%20y='340'%20font-family='Inter,Arial'%20font-size='220'%20text-anchor='middle'%20fill='%23ff6b35'%20font-weight='700'>i</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><rect%20rx='64'%20width='512'%20height='512'%20fill='%23ff6b35'/><rect%20x='96'%20y='96'%20width='320'%20height='320'%20rx='40'%20fill='%23ffffff'/><text%20x='256'%20y='340'%20font-family='Inter,Arial'%20font-size='220'%20text-anchor='middle'%20fill='%23ff6b35'%20font-weight='700'>i</text></svg>">
+
+  <!-- Google Font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #ff6b35;
+      --accent-2: #25d366;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(15,23,42,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: linear-gradient(180deg, var(--bg), #eef2f6 120%);
+      color:#0f172a;
+    }
+
+    header{
+      background:linear-gradient(90deg,#0b1220,#0f172a);
+      color:#fff;padding:20px;position:sticky;top:0;z-index:50;box-shadow:0 6px 24px rgba(2,6,23,0.25)
+    }
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{height:48px;width:48px;border-radius:10px;background:linear-gradient(135deg,#ff7a45,#ff6b35);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    .brand h1{font-size:1.15rem;margin:0}
+    .brand p{margin:0;font-size:0.85rem;color:rgba(255,255,255,0.9)}
+
+    .contact{display:flex;gap:8px;align-items:center}
+    .btn{padding:8px 12px;border-radius:10px;font-weight:600;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .btn-ghost{background:transparent;color:rgba(255,255,255,0.92);border:1px solid rgba(255,255,255,0.06)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff7a45);color:white;box-shadow:0 6px 18px rgba(255,107,53,0.16)}
+
+    .container{max-width:1200px;margin:20px auto;padding:0 20px 80px}
+    .hero{display:flex;gap:24px;align-items:center;justify-content:space-between;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));padding:20px;border-radius:14px;box-shadow:var(--shadow);margin-bottom:18px}
+    .hero-left h2{margin:0;font-size:1.4rem}
+    .hero-left p{margin:4px 0;color:var(--muted)}
+    .search{display:flex;gap:10px;margin-top:12px}
+    .search input{padding:10px 12px;border-radius:10px;border:1px solid #e6e9ef;min-width:220px}
+    .search button{padding:10px 14px;border-radius:10px;border:0;background:#0f172a;color:white;cursor:pointer}
+
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:12px}
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(15,23,42,0.12)}
+    .card-media{aspect-ratio:16/10;background:#f3f4f6}
+    .card-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .card-body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .title-row{display:flex;justify-content:space-between;align-items:flex-start}
+    .product-name{font-weight:700}
+    .product-desc{font-size:0.9rem;color:var(--muted)}
+    .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .price{font-size:1.05rem;font-weight:800;color:var(--accent)}
+    .actions{display:flex;gap:8px;width:100%}
+    .btn-order{flex:1;background:linear-gradient(90deg,#1bd97b,#25d366);color:#00311a;border-radius:10px;padding:10px;font-weight:700;border:0;cursor:pointer}
+    .btn-detail{flex:1;background:transparent;border:1px solid #e6e9ef;color:#0f172a;border-radius:10px;padding:10px;cursor:pointer}
+
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;z-index:80;padding:18px}
+    .modal{width:100%;max-width:920px;background:var(--card);border-radius:12px;box-shadow:0 24px 60px rgba(2,6,23,0.4);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+    .modal-media{min-height:320px;display:flex;align-items:center;justify-content:center;background:#fafafa}
+    .modal-media img{width:100%;height:100%;object-fit:cover}
+    .modal-body{padding:18px}
+    .specs-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .specs-table th{ text-align:left;font-weight:700;padding:8px 6px;color:var(--muted);width:40%}
+    .specs-table td{padding:8px 6px;color:#0f172a;border-bottom:1px dashed #f1f5f9}
+
+    .close-btn{background:transparent;border:0;font-weight:700;color:var(--muted);cursor:pointer}
+
+    footer{max-width:1200px;margin:36px auto;padding:16px 20px;background:transparent;color:var(--muted);font-size:0.95rem;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+    @media (max-width:900px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .modal{grid-template-columns:1fr}
+      .modal-media{min-height:260px}
+      .products-grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+    }
+    @media (max-width:480px){
+      .brand h1{font-size:1rem}
+      .logo{height:40px;width:40px}
+      .search input{min-width:140px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">B</div>
+        <div>
+          <h1>BanCU STORE</h1>
+          <p>Toko iPhone Terpercaya</p>
+        </div>
+      </div>
+
+      <div class="contact" aria-hidden="false">
+        <a class="btn btn-ghost" href="tel:+6283133847940">📞 0831-3384-7940</a>
+        <a class="btn btn-primary" href="mailto:ishop@example.com">✉️ Hubungi Kami</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="page">
+    <section class="hero" aria-labelledby="produk-heading">
+      <div class="hero-left">
+        <h2 id="produk-heading">Produk Unggulan</h2>
+        <p>Pilih iPhone berkualitas, kondisi terverifikasi, garansi jelas. Pembayaran mudah & layanan cepat.</p>
+
+        <div class="search" role="search">
+          <input id="searchInput" type="search" placeholder="Cari produk (mis. iPhone 12)" aria-label="Cari produk">
+          <button id="searchBtn" aria-label="Cari">Cari</button>
+        </div>
+      </div>
+
+      <div class="hero-right" style="text-align:right;min-width:180px">
+        <div style="font-weight:700">Gratis Konsultasi</div>
+        <div style="color:var(--muted);margin-top:6px">Tanya stok & kondisi via WhatsApp</div>
+      </div>
+    </section>
+
+    <section class="products-grid" id="products">
+      <!-- Example products: duplicate and edit data-* to add more -->
+      <article class="card" tabindex="0"
+        data-name="iPhone Xr"
+        data-id="XR"
+        data-price="2500000"
+        data-currency="Rp"
+        data-desc="iPhone Xr kondisi 9/10, garansi 3 bulan. Tersedia warna: Black, White, Red."
+        data-image="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/8/9/046da7db-a031-40f3-9872-5cc76b4f0477.jpg"
+      >
+        <div class="card-media">
+          <img loading="lazy" src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/8/9/046da7db-a031-40f3-9872-5cc76b4f0477.jpg" alt="iPhone Xr">
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div>
+              <div class="product-name">iPhone Xr</div>
+              <div class="product-desc">Kondisi 9/10 · Garansi 3 bulan</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:0.8rem;color:var(--muted)">Stok: Terbatas</div>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div class="price">Rp 2.500.000</div>
+            <div style="width:50%">
+              <div class="actions">
+                <button class="btn-order" data-action="order">Pesan</button>
+                <button class="btn-detail" data-action="detail">Detail</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- iPhone 11 -->
+      <article class="card" tabindex="0"
+        data-name="iPhone 11"
+        data-id="11"
+        data-price="3500000"
+        data-desc="iPhone 11 kondisi 9.5/10, garansi 6 bulan."
+        data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ60SqumrXayUGML-BDXZzEzpVPKN6YVnJ_8bE5vfO3uf8xiu9DIqHTyv0&s=10"
+      >
+        <div class="card-media"><img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ60SqumrXayUGML-BDXZzEzpVPKN6YVnJ_8bE5vfO3uf8xiu9DIqHTyv0&s=10" alt="iPhone 11"></div>
+        <div class="card-body">
+          <div class="title-row">
+            <div>
+              <div class="product-name">iPhone 11</div>
+              <div class="product-desc">Performa tangguh · Garansi 6 bulan</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:0.8rem;color:var(--muted)">Stok: Tersedia</div>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div class="price">Rp 3.500.000</div>
+            <div style="width:50%">
+              <div class="actions">
+                <button class="btn-order" data-action="order">Pesan</button>
+                <button class="btn-detail" data-action="detail">Detail</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- iPhone 12 -->
+      <article class="card" tabindex="0"
+        data-name="iPhone 12"
+        data-id="12"
+        data-price="4800000"
+        data-desc="iPhone 12 kondisi 9.8/10, garansi 1 tahun. Mendukung 5G & MagSafe."
+        data-image="https://media.karousell.com/media/photos/products/2022/6/26/iphone_12_pro_128gb_ibox_1656225235_4b6d8c8b_progressive.jpg"
+      >
+        <div class="card-media"><img loading="lazy" src="https://media.karousell.com/media/photos/products/2022/6/26/iphone_12_pro_128gb_ibox_1656225235_4b6d8c8b_progressive.jpg" alt="iPhone 12"></div>
+        <div class="card-body">
+          <div class="title-row">
+            <div>
+              <div class="product-name">iPhone 12</div>
+              <div class="product-desc">Desain premium · Garansi 1 tahun</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:0.8rem;color:var(--muted)">Stok: Terbatas</div>
+            </div>
+          </div>
+
+          <div class="price-row">
+            <div class="price">Rp 4.800.000</div>
+            <div style="width:50%">
+              <div class="actions">
+                <button class="btn-order" data-action="order">Pesan</button>
+                <button class="btn-detail" data-action="detail">Detail</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Modal detail -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <div class="modal-media" id="modalMedia">
+        <img src="" alt="" id="modalImage">
+      </div>
+      <div class="modal-body">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div>
+            <h3 id="modalTitle" style="margin:0">Produk</h3>
+            <div id="modalSub" style="color:var(--muted);font-size:0.95rem;margin-top:6px">Deskripsi singkat</div>
+          </div>
+          <div>
+            <button class="close-btn" id="modalClose" aria-label="Tutup">✕</button>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:16px;align-items:center">
+          <div style="font-weight:800;color:var(--accent);font-size:1.15rem" id="modalPrice">Rp 0</div>
+          <div style="color:var(--muted);font-size:0.95rem" id="modalStock">Stok: -</div>
+        </div>
+
+        <p style="margin-top:12px;color:#0f172a" id="modalDesc">Detail lengkap produk.</p>
+
+        <table class="specs-table" id="modalSpecs" aria-hidden="true"></table>
+
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <button id="modalOrder" class="btn-order">Pesan via WhatsApp</button>
+          <a class="btn-detail" href="#" id="modalChat" target="_blank" rel="noopener">Chat Penjual</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer aria-label="Footer informasi">
+    <div>&copy; <span id="year"></span> BanCU STORE. Semua hak dilindungi.</div>
+    <div style="color:var(--muted)">Hubungi: 0831-3384-7940 · ishop@example.com</div>
+  </footer>
+
+  <script>
+    /* ========= Configuration ========= */
+    const WA_NUMBER = '6283133847940'; // ganti dengan nomor Anda dalam format internasional (tanpa +)
+    /* ================================= */
+
+    // Basic helpers
+    function formatRupiah(number){
+      return 'Rp ' + Number(number).toLocaleString('id-ID');
+    }
+
+    // Modal elements
+    const productsGrid = document.getElementById('products');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSub = document.getElementById('modalSub');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalOrder = document.getElementById('modalOrder');
+    const modalChat = document.getElementById('modalChat');
+    const modalClose = document.getElementById('modalClose');
+    const yearEl = document.getElementById('year');
+
+    yearEl.textContent = new Date().getFullYear();
+
+    // Delegated click handling for product actions
+    productsGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      const card = btn.closest('.card');
+      if (!card) return;
+
+      const action = btn.dataset.action;
+      const product = {
+        name: card.dataset.name,
+        id: card.dataset.id,
+        price: card.dataset.price,
+        desc: card.dataset.desc,
+        image: card.dataset.image
+      };
+
+      if (action === 'order') {
+        orderViaWhatsApp(product);
+      } else if (action === 'detail') {
+        openModal(product);
+      }
+    });
+
+    // Keyboard support (Enter/Space on card opens detail)
+    productsGrid.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('card')) {
+        e.preventDefault();
+        const card = e.target;
+        openModal({
+          name: card.dataset.name,
+          id: card.dataset.id,
+          price: card.dataset.price,
+          desc: card.dataset.desc,
+          image: card.dataset.image
+        });
+      }
+    });
+
+    function openModal(product){
+      modalImage.src = product.image || '';
+      modalImage.alt = product.name || 'Produk';
+      modalTitle.textContent = product.name || 'Produk';
+      modalSub.textContent = `Kode: ${product.id || '-'}`;
+      modalDesc.textContent = product.desc || '-';
+      modalPrice.textContent = formatRupiah(product.price || 0);
+      modalBackdrop.style.display = 'flex';
+      modalBackdrop.setAttribute('aria-hidden','false');
+
+      modalChat.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Halo, saya mau tanya tentang ' + product.name)}`;
+      modalOrder.onclick = () => orderViaWhatsApp(product);
+      setTimeout(()=> modalClose.focus(), 120);
+    }
+
+    function closeModal(){
+      modalBackdrop.style.display = 'none';
+      modalBackdrop.setAttribute('aria-hidden','true');
+      modalImage.src = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', (e) => { if (e.target === modalBackdrop) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalBackdrop.style.display === 'flex') closeModal(); });
+
+    function orderViaWhatsApp({name, id, price}) {
+      const message = `Halo, saya ingin memesan:%0ANama%20Produk:%20${name}%0AKode%20Produk:%20${id}%0AHarga:%20${formatRupiah(price)}%0A%0AMohon%20info%20stok%20dan%20cara%20pembayaran.%20Terima%20kasih.`;
+      const url = `https://wa.me/${WA_NUMBER}?text=${message}`;
+      window.open(url, '_blank');
+    }
+
+    // Simple search
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    searchBtn.addEventListener('click', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('#products .card').forEach(card => {
+        const name = (card.dataset.name || '').toLowerCase();
+        const desc = (card.dataset.desc || '').toLowerCase();
+        const match = !q || name.includes(q) || desc.includes(q);
+        card.style.display = match ? '' : 'none';
+      });
+    });
+    searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') searchBtn.click(); });
+
+    /* --------- Dynamically create Web App Manifest (uses embedded iBox icon) --------- */
+    (function createManifest(){
+      try {
+        const iconData = "data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><rect%20rx='64'%20width='512'%20height='512'%20fill='%23ff6b35'/><rect%20x='96'%20y='96'%20width='320'%20height='320'%20rx='40'%20fill='%23ffffff'/><text%20x='256'%20y='340'%20font-family='Inter,Arial'%20font-size='220'%20text-anchor='middle'%20fill='%23ff6b35'%20font-weight='700'>i</text></svg>";
+        const manifest = {
+          name: "BanCU STORE",
+          short_name: "BanCU",
+          start_url: ".",
+          display: "standalone",
+          background_color: "#ffffff",
+          theme_color: "#0f172a",
+          icons: [
+            { src: iconData, sizes: "512x512", type: "image/svg+xml" },
+            { src: iconData, sizes: "192x192", type: "image/svg+xml" }
+          ]
+        };
+        const blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = url;
+        document.head.appendChild(link);
+      } catch (err) {
+        console.warn('Manifest create failed', err);
+      }
+    })();
+    /* -------------------------------------------------------------------------------- */
+
+    /* Optional: Service Worker registration (if you add a sw.js file at site root) */
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker?.register('/sw.js').then(reg=>{
+          // console.log('SW registered', reg);
+        }).catch(()=>{/* no-op if sw not present */});
+      });
+    }
+  </script>
+</body>
+</html>
